@@ -5,7 +5,7 @@ public void setup()
 {
 	size(800,800);
 bob = new Spaceship();
-galaxy = new Star[15];
+galaxy = new Star[30];
 for (int i = 0; i<galaxy.length; i++){
 	galaxy[i] = new Star();
 
@@ -13,14 +13,13 @@ for (int i = 0; i<galaxy.length; i++){
 }
 public void draw() 
 {
-background(255);
+background(0);
 bob.show();
 bob.move();
 for (int i = 0; i<galaxy.length; i++){
 	galaxy[i].show();
 	
 }
-System.out.println(bob.getDirectionX()+ "and" +bob.getDirectionY()); 
 if (bob.getDirectionX()>speedLimit){bob.setDirectionX(speedLimit);}
 if (bob.getDirectionY()>speedLimit){bob.setDirectionY(speedLimit);}
 if (bob.getDirectionX()<-speedLimit){bob.setDirectionX(-speedLimit);}

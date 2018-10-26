@@ -10,7 +10,7 @@ Star() {
 
 void show() {
 
-	fill(0);
+	fill(255);
 	ellipse(sX,sY,10,10);
 }
 
