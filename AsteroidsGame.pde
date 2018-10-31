@@ -1,19 +1,31 @@
 Spaceship bob;
 Star[] galaxy;
-private int speedLimit = 10;
+Asteroid[] rocks;
+private int speedLimit = 5;
 public void setup() 
 {
 	size(800,800);
 bob = new Spaceship();
-galaxy = new Star[30];
+rocks = new Asteroid[10];
+galaxy = new Star[80];
 for (int i = 0; i<galaxy.length; i++){
 	galaxy[i] = new Star();
+
+}
+for (int i = 0; i<rocks.length; i++){
+	rocks[i] = new Asteroid();
 
 }
 }
 public void draw() 
 {
 background(0);
+for (int i = 0; i<rocks.length; i++){
+	rocks[i].show();
+	rocks[i].move();
+	rocks[i].turn(rocks[i].getrotSpeed());
+	
+}
 bob.show();
 bob.move();
 for (int i = 0; i<galaxy.length; i++){
@@ -32,10 +44,9 @@ public void keyPressed() {
 if (key == 'a'){bob.turn(-20);}
 
 else if (key == 'd'){bob.turn(20);}
-else if (key == 'w'){bob.accelerate(1);System.out.println("a");
-}
-else if (key == 's'){bob.accelerate(-1);}
-else if(key == 'h'){bob.hyperspace();}
+if (key == 'w'){bob.accelerate(2);}
+else if (key == 's'){bob.accelerate(-3);}
+if(key == 'h'){bob.hyperspace();}
 
 
 
