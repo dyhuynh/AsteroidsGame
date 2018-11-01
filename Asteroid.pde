@@ -52,7 +52,6 @@ class Asteroid extends Floater
     //change the x and y coordinates by myDirectionX and myDirectionY       
     myCenterX += myDirectionX;    
     myCenterY += myDirectionY; 
-    System.out.println(myDirectionX+"," +myDirectionY);    
 
     //wrap around screen    
     if(myCenterX > width)

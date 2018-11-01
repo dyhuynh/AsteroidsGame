@@ -18,6 +18,12 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   abstract public void setPointDirection(int degrees);   
   abstract public double getPointDirection(); 
 
+  public void brake () {
+    myDirectionX = myDirectionX/3;
+    myDirectionY = myDirectionY/3;
+
+  }
+
   //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
   {          
