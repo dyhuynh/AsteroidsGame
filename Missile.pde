@@ -47,7 +47,7 @@ class Missile extends Floater
   public void show ()  //Draws the floater at the current position  
   {              
   fill(240);
-  ellipse(joe.getX(), joe.getY(), 10, 10); 
+  ellipse(getX(), getY(), 10, 10); 
 
   }
 

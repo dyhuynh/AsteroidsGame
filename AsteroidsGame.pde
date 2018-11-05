@@ -3,6 +3,7 @@ Star[] galaxy;
 ArrayList<Asteroid> rocks;
 ArrayList<Missile> lasers;
 Missile joe;
+
 private int speedLimit;
 public void setup() 
 {
@@ -12,7 +13,6 @@ public void setup()
   rocks = new ArrayList<Asteroid>();
   lasers = new ArrayList<Missile>();
   galaxy = new Star[80];
-  joe = new Missile();
 
   for (int i = 0; i<galaxy.length; i++) {
     galaxy[i] = new Star();
@@ -25,10 +25,13 @@ public void draw()
 {
 
   background(0);
-  for (int i = 0; i<10; i++) {
+  for (int i = 0; i<rocks.size(); i++) {
     rocks.get(i).show();
     rocks.get(i).move();
-    rocks.get(i).turn(rocks.get(i).getrotSpeed());
+  }
+  for (int i = 0; i<lasers.size(); i++) {
+    lasers.get(i).show();
+    lasers.get(i).move();
   }
   bob.show();
   bob.move();
@@ -74,5 +77,7 @@ public void keyPressed() {
    if (key == 'q') {
    	System.out.println("hello");
     lasers.add(new Missile());
+   
+
   }
 }
