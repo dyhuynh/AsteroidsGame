@@ -33,6 +33,27 @@ public void draw()
     lasers.get(i).show();
     lasers.get(i).move();
   }
+  for (int i = 0; i<lasers.size(); i++) 
+  {
+    for(int nI = 0; nI<rocks.size(); nI++)
+    {
+    if (dist(lasers.get(i).getX(),lasers.get(i).getY(),rocks.get(nI).getX(),rocks.get(nI).getY())<12) 
+    {
+      rocks.remove(nI);
+      lasers.remove(i);
+
+    }
+    }
+  }
+for(int nI = 0; nI<rocks.size(); nI++)
+    {
+    if (dist(rocks.get(nI).getX(),rocks.get(nI).getY(),bob.getX(),bob.getY())<15) 
+    {
+      rocks.remove(nI);
+      
+    }
+    }
+  
   bob.show();
   bob.move();
  

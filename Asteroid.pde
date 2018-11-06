@@ -3,7 +3,7 @@ class Asteroid extends Floater
   private int aSize;
 	Asteroid() {
 		aSize = 1;
-		corners = 8;
+		corners = 10;
 		xCorners = new int [corners];
 		yCorners = new int [corners];
 
@@ -15,14 +15,18 @@ class Asteroid extends Floater
 		yCorners[2] = 2*aSize;
 		xCorners[3] = -10*aSize;
 		yCorners[3] = 8*aSize;
-		xCorners[4] = 6*aSize;
-		yCorners[4] = 11*aSize;
-		xCorners[5] = 9*aSize;
-		yCorners[5] = 10*aSize;
-		xCorners[6] = 13*aSize;
-		yCorners[6] = 0*aSize;
-		xCorners[7] = 8*aSize;
-		yCorners[7] = -5*aSize;
+		xCorners[4] = -3*aSize;
+		yCorners[4] = 13*aSize;
+		xCorners[5] = 6*aSize;
+		yCorners[5] = 11*aSize;
+		xCorners[6] = 9*aSize;
+		yCorners[6] = 10*aSize;
+		xCorners[7] = 12*aSize;
+		yCorners[7] = 4*aSize;
+		xCorners[8] = 13*aSize;
+		yCorners[8] = 0*aSize;
+		xCorners[9] = 8*aSize;
+		yCorners[9] = -5*aSize;
 
 		myColor = color(50,50,50);
 		myCenterX = (int)(Math.random()*600+100);
