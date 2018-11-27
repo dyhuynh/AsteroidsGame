@@ -8,8 +8,8 @@ class Missile extends Floater
     myCenterY = bob.getY();
     myPointDirection = bob.getPointDirection();
     dRadians = myPointDirection*(Math.PI/180);
-    myDirectionX = 5*Math.cos(dRadians)+ bob.getDirectionX();
-    myDirectionY = 5*Math.sin(dRadians)+ bob.getDirectionY();
+    myDirectionX = 15*Math.cos(dRadians)+ bob.getDirectionX();
+    myDirectionY = 15*Math.sin(dRadians)+ bob.getDirectionY();
 
   }
   public void setX(int x) {

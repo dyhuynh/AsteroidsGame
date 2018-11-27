@@ -3,10 +3,18 @@ Star[] galaxy;
 ArrayList<Asteroid> rocks;
 ArrayList<Missile> lasers;
 Missile joe;
+int health;
+int score;
+boolean a,d,w,s,e,q;
+
 
 private int speedLimit;
 public void setup() 
 {
+  a=d=w=s=e=q=false;
+  health = 100;
+  score = 0;
+
   speedLimit = 5;
   size(800, 800);
   bob = new Spaceship();
@@ -17,14 +25,17 @@ public void setup()
   for (int i = 0; i<galaxy.length; i++) {
     galaxy[i] = new Star();
   }
-  for (int i = 0; i<10; i++) {
+  for (int i = 0; i<12; i++) {
     rocks.add(new Asteroid());
   }
 }
 public void draw() 
 {
+    background(0);
+  text("Health:"+health,700,50);
+  text("Score:"+score,700,100);
 
-  background(0);
+
   for (int i = 0; i<rocks.size(); i++) {
     rocks.get(i).show();
     rocks.get(i).move();
@@ -33,15 +44,17 @@ public void draw()
     lasers.get(i).show();
     lasers.get(i).move();
   }
-  for (int i = 0; i<lasers.size(); i++) 
-  {
-    for(int nI = 0; nI<rocks.size(); nI++)
+  for(int nI = 0; nI<rocks.size(); nI++)
     {
+    for (int i = 0; i<lasers.size(); i++) 
+      {
+    
     if (dist(lasers.get(i).getX(),lasers.get(i).getY(),rocks.get(nI).getX(),rocks.get(nI).getY())<12) 
     {
       rocks.remove(nI);
       lasers.remove(i);
-
+      score+=10;
+      break;
     }
     }
   }
@@ -50,6 +63,7 @@ for(int nI = 0; nI<rocks.size(); nI++)
     if (dist(rocks.get(nI).getX(),rocks.get(nI).getY(),bob.getX(),bob.getY())<15) 
     {
       rocks.remove(nI);
+      health-=10;
       
     }
     }
@@ -75,30 +89,86 @@ for(int nI = 0; nI<rocks.size(); nI++)
     bob.setDirectionY(-speedLimit);
   }
 
+  //keyPressed
+   if (a==true) {
+    bob.turn(-5);
+  } else if (d==true) {
+    bob.turn(5);
+  }
+  if (w==true) {
+    bob.accelerate(2);
+  } else if (s==true) {
+    bob.accelerate(-3);
+  }
+  
+  if (e==true) {
+    bob.brake();
+  }
+   if (q==true) {
+
+    lasers.add(new Missile());
+   
+   if (rocks.size()<12) {
+    rocks.add(new Asteroid());
+   }
+
+  }
+  if (health==0) {
+    text("GAME OVER",300,400);
+  }
 }
 
 public void keyPressed() {
 
+
   if (key == 'a') {
-    bob.turn(-20);
-  } else if (key == 'd') {
-    bob.turn(20);
+    a=true;
+  } 
+   if (key == 'd') {
+    d=true;
   }
   if (key == 'w') {
-    bob.accelerate(2);
-  } else if (key == 's') {
-    bob.accelerate(-3);
-  }
+    w=true;
+  } 
+   if (key == 's') {    
+    s=true;
+   }
+
+
   if (key == 'h') {
     bob.hyperspace();
   }
   if (key == 'e') {
-    bob.brake();
+    e=true;
   }
-   if (key == 'q') {
-   	System.out.println("hello");
-    lasers.add(new Missile());
-   
 
+   if (key == 'q') {
+    q=true;
+  }
+}
+public void keyReleased() {
+
+
+  if (key == 'a') {
+    a=false;
+  } 
+   if (key == 'd') {
+    d=false;
+  }
+  if (key == 'w') {
+    w=false;
+  } 
+   if (key == 's') {    
+    s=false;
+   }
+
+
+
+  if (key == 'e') {
+    e=false;
+  }
+
+   if (key == 'q') {
+    q=false;
   }
 }
