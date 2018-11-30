@@ -1,7 +1,7 @@
 class Missile extends Floater
 {
   double dRadians;
-  public Missile() {
+  public Missile(Spaceship theShip) {
 
     myColor = color(11, 82, 163);
     myCenterX = bob.getX();

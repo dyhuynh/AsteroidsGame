@@ -2,7 +2,7 @@ class Asteroid extends Floater
 { private int rotSpeed;
   private int aSize;
 	Asteroid() {
-		aSize = 1;
+		aSize = 2;
 		corners = 10;
 		xCorners = new int [corners];
 		yCorners = new int [corners];
